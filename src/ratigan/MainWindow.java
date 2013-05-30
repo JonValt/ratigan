@@ -440,7 +440,7 @@ public class MainWindow extends javax.swing.JFrame {
 
 
     private void jgobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jgobuttonActionPerformed
-//Killing all other ratproxies first.  THERE CAN ONLY BE ONE!
+//Killing all other ratproxies!  THERE CAN ONLY BE ONE!
         String cmd = "killall ratproxy"; 
         Runtime rt=Runtime.getRuntime();
         try {
