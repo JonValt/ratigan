@@ -1,7 +1,7 @@
 ratigan
 =======
 
-ratigan stands for RATproxy Integrated Graphical Application 'Nspector.  THAT'S a mouthful, ay?
+ratigan stands for RATproxy Integrated Graphical Application 'Nspector.  That's a mouthful, ay?
 
 The genesis of this project was the idea that "Ratproxy is hard.  Let's make it easy."
 
