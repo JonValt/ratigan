@@ -448,7 +448,13 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        try {
+            //Attempting to brute-force create output dir
+            
+            rt.exec(new String[]{"/bin/sh", "-c", "mkdir /tmp/ratproxy/"});
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
            /// THIS IS THE RATPROXY PROCESS
         cmd = jcommandlabel.getText().trim();
