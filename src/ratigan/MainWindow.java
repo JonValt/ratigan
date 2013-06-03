@@ -450,7 +450,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         
         
-           // THIS IS THE RATPROXY PROCESS
+           /// THIS IS THE RATPROXY PROCESS
         cmd = jcommandlabel.getText().trim();
 	if( cmd.equals( "" ) ) {
 		return;
