@@ -623,7 +623,9 @@ if(outputfile.exists()){
             } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    jreportbutton.setText("View");                             
+      jreportbutton.setBackground(new java.awt.Color(102, 102, 102));
+      jreportbutton.setForeground(Color.BLACK);
+      jreportbutton.setText("View");                             
                
                 
             
