@@ -608,7 +608,7 @@ if(outputfile.exists()){
             } catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }else{jreportbutton.setText("WAIT");JOptionPane.showMessageDialog(frame, "Generating new report - Wait for View button to appear.");
+    }else{jreportbutton.setText("WAIT");jreportbutton.setBackground(Color.RED);jreportbutton.setForeground(Color.WHITE);JOptionPane.showMessageDialog(frame, "Generating new report - Wait for View button to appear.");
                     
                        try {
   Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});         
