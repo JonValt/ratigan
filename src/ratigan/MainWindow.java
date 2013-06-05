@@ -608,14 +608,21 @@ if(outputfile.exists()){
             } catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }else{JOptionPane.showMessageDialog(frame, "Generating new report - Wait a few seconds, then click button again.");
+    }else{jreportbutton.setText("WAIT");JOptionPane.showMessageDialog(frame, "Generating new report - Wait for View button to appear.");
                     
                        try {
-        Runtime rt=Runtime.getRuntime();
-        rt.exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});
+  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});         
+            try {
+                process.waitFor();
+                /*     Runtime rt=Runtime.getRuntime();
+                      rt.exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});  */
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      
             } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     jreportbutton.setText("View");                             
                
                 
