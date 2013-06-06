@@ -464,7 +464,6 @@ public class MainWindow extends javax.swing.JFrame {
 	this._process = new RatproxyProcess( cmd, this.outputbox );
         Thread nt = new Thread( this._process );
         nt.start();
- 
         
 // LIST RATPROXIES?        
         try {
