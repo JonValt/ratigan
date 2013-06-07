@@ -589,7 +589,6 @@ jcommandlabel.setText(RATPROXY_BIN+" "+command);
             this._process.shutdown();
         }
         logfile = DEFAULT_WORKDIR + "ratproxy-report.htm";
-//forcing a comit for testing purposes. 
 URI reportpath=null;
         try {
             reportpath = new URI("file://"+logfile);
