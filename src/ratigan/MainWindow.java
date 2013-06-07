@@ -473,7 +473,7 @@ public class MainWindow extends javax.swing.JFrame {
                 new BufferedReader(new InputStreamReader(p.getInputStream()));
         while ((line = input.readLine()) != null) {
             System.out.println(line);
-            outputbox.append("\nRatproxy Started with PID: "+line+"\n");//<-- Parse data here.
+           outputbox.append("\nRatproxy Started with PID: "+line+"\n");//<-- Parse data here.
         }
         input.close();
     } catch (Exception err) {
@@ -589,7 +589,7 @@ jcommandlabel.setText(RATPROXY_BIN+" "+command);
             this._process.shutdown();
         }
         logfile = DEFAULT_WORKDIR + "ratproxy-report.htm";
- 
+//forcing a comit for testing purposes. 
 URI reportpath=null;
         try {
             reportpath = new URI("file://"+logfile);
