@@ -440,7 +440,8 @@ public class MainWindow extends javax.swing.JFrame {
 
 
     private void jgobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jgobuttonActionPerformed
-//Killing all other ratproxies!  THERE CAN ONLY BE ONE!
+jreportbutton.setBackground(new java.awt.Color(102, 102, 102)); //set Report button back to default color
+        //Killing all other ratproxies!  THERE CAN ONLY BE ONE!
         String cmd = "killall ratproxy"; 
         Runtime rt=Runtime.getRuntime();
         try {
@@ -584,7 +585,8 @@ jcommandlabel.setText(RATPROXY_BIN+" "+command);
 
     private void jreportbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jreportbuttonActionPerformed
 
-//REPORT PROCESS
+jreportbutton.setBackground(new java.awt.Color(102, 102, 102)); //set Report button back to default color
+        //REPORT PROCESS
         if( this._process != null ) {
             this._process.shutdown();
         }
@@ -621,7 +623,6 @@ if(outputfile.exists()){
             } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } 
-//      jreportbutton.setBackground(new java.awt.Color(102, 102, 102));
       jreportbutton.setForeground(Color.BLACK);
       jreportbutton.setBackground(Color.GREEN);
       jreportbutton.setText("View");                             
