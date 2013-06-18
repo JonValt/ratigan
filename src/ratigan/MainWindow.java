@@ -18,6 +18,9 @@ import java.util.List;
 import java.io.BufferedReader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 
@@ -590,7 +593,8 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
         if( this._process != null ) {
             this._process.shutdown();
         }
-        logfile = DEFAULT_WORKDIR + "ratproxy-report.htm";
+String date = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date());
+        logfile = DEFAULT_WORKDIR + date+"-report.htm";
 URI reportpath=null;
         try {
             reportpath = new URI("file://"+logfile);
@@ -601,7 +605,7 @@ URI reportpath=null;
         }
 
         String cmd;
-File outputfile = new File("/tmp/ratproxy/ratproxy-report.htm");      
+File outputfile = new File(logfile); //using logfile instead of direct path for consistancy
 if(outputfile.exists()){
             try {
                 Desktop.getDesktop().browse(reportpath);
@@ -611,7 +615,7 @@ if(outputfile.exists()){
     }else{jreportbutton.setText("WAIT");jreportbutton.setBackground(Color.RED);jreportbutton.setForeground(Color.WHITE);JOptionPane.showMessageDialog(frame, "Generating new report - Wait for View button to appear.");
                     
                        try {
-  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});         
+  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > "+logfile});         
             try {
                 process.waitFor();
                 /*     Runtime rt=Runtime.getRuntime();
