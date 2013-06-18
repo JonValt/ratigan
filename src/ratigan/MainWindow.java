@@ -593,7 +593,7 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
         if( this._process != null ) {
             this._process.shutdown();
         }
-String date = new SimpleDateFormat("yyyy-MM-dd-HH-mm").format(new Date());
+String date = new SimpleDateFormat("yyyy-MM-dd-HHmm").format(new Date());
         logfile = DEFAULT_WORKDIR + date+"-report.htm";
 URI reportpath=null;
         try {
