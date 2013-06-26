@@ -482,7 +482,7 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
         input.close();
     } catch (Exception err) {
     }
-        
+ jreportbutton.setEnabled(true);       
         
         
         // TODO add your handling code here:
@@ -549,6 +549,7 @@ command = command + port;
 
 //show command
 jcommandlabel.setText(RATPROXY_BIN+" "+command);
+jreportbutton.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jstopbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jstopbuttonActionPerformed
@@ -567,6 +568,7 @@ jcommandlabel.setText(RATPROXY_BIN+" "+command);
             this._process.shutdown();
         }
         outputbox.append("Killt!\n");
+        jreportbutton.setEnabled(true);
     }//GEN-LAST:event_jstopbuttonActionPerformed
 
     private void jexitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jexitbuttonActionPerformed
@@ -594,7 +596,22 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
             this._process.shutdown();
         }
 String date = new SimpleDateFormat("yyyy-MM-dd-HHmm").format(new Date());
-        logfile = DEFAULT_WORKDIR + date+"-report.htm";
+//        logfile = DEFAULT_WORKDIR + date+"-report.htm";
+        File homeDir = new File(System.getProperty("user.home"));
+        File LOG_DIR = new File(homeDir+"/Desktop/ratigan/");
+        //if the directory does not exist, create it
+        if (!LOG_DIR.exists())
+        {
+            outputbox.append("Creating output directory "+LOG_DIR+"..."+"\n");
+            boolean result = LOG_DIR.mkdir();
+            if (result){
+                outputbox.append("Created "+LOG_DIR+" successfully!"+"\n");
+            }
+        }
+        
+//        outputbox.append("debug: logfile= "+logfile+"\n");
+        logfile = LOG_DIR + "/"+date+"-report.htm";
+//        outputbox.append("debug: logfile now= "+logfile+"\n");
 URI reportpath=null;
         try {
             reportpath = new URI("file://"+logfile);
@@ -609,15 +626,17 @@ File outputfile = new File(logfile); //using logfile instead of direct path for 
 if(outputfile.exists()){
             try {
                 Desktop.getDesktop().browse(reportpath);
+                jreportbutton.setEnabled(false);  // can only create a report once
             } catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }else{jreportbutton.setText("WAIT");jreportbutton.setBackground(Color.RED);jreportbutton.setForeground(Color.WHITE);JOptionPane.showMessageDialog(frame, "Generating new report - Wait for View button to appear.");
+    }else{jreportbutton.setText("WAIT");jreportbutton.setBackground(Color.RED);jreportbutton.setForeground(Color.WHITE);JOptionPane.showMessageDialog(frame, "Generating new report - It will open once complete.");
                     
                        try {
-  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > "+logfile});         
+  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > "+outputfile});         
             try {
                 process.waitFor();
+                outputbox.append("Report successfully created at: "+outputfile+"\n");
                 /*     Runtime rt=Runtime.getRuntime();
                       rt.exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > /tmp/ratproxy/ratproxy-report.htm"});  */
             } catch (InterruptedException ex) {
@@ -629,7 +648,14 @@ if(outputfile.exists()){
         } 
       jreportbutton.setForeground(Color.BLACK);
       jreportbutton.setBackground(Color.GREEN);
-      jreportbutton.setText("View");                             
+      jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.setText("Report"); //set Report button back to default color and text
+      jreportbutton.setEnabled(false);  // can only create a report once
+//opening report by default now
+      try {
+                Desktop.getDesktop().browse(reportpath);
+            } catch (IOException ex) {
+                Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
                
                 
             
