@@ -58,6 +58,7 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         joptionspanel = new javax.swing.JPanel();
         jhideoptionsbutton = new javax.swing.JButton();
         jcheckboxc = new javax.swing.JCheckBox();
@@ -81,7 +82,6 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jgobutton = new javax.swing.JButton();
         jstopbutton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jscopefield = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -105,6 +105,11 @@ public class MainWindow extends javax.swing.JFrame {
         setBackground(java.awt.Color.black);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ratigan/ratiganwhite2.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 620, 130));
 
         jhideoptionsbutton.setText("[Hide Me]");
         jhideoptionsbutton.setMaximumSize(new java.awt.Dimension(100, 29));
@@ -317,11 +322,6 @@ public class MainWindow extends javax.swing.JFrame {
         });
         getContentPane().add(jstopbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 150, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ratigan/ratiganwhite2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Command");
@@ -366,7 +366,7 @@ public class MainWindow extends javax.swing.JFrame {
         outputbox.setColumns(20);
         outputbox.setForeground(new java.awt.Color(102, 102, 102));
         outputbox.setRows(5);
-        outputbox.setText("ratigan v1.0b");
+        outputbox.setText("ratigan v1.1b");
         outputbox.setToolTipText("Output will go here");
         jScrollPane2.setViewportView(outputbox);
 
