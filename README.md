@@ -9,6 +9,6 @@ More documentation to come.  In the meantime, see https://vimeo.com/69189748 or 
 
 Does my code suck?  Great!  Submit a Pull Request!
 
-![ratigan](https://github.com/JonValt/ratigan/blob/master/doc/ratigan.png "ratigan screenie")
+![ratigan](https://github.com/JonValt/ratigan/blob/master/doc/ratigan.png?raw=true "ratigan screenie")
 
 Legalese:  ratigan is (c) 2013 University of Texas at Austin.  Released under GPL 2.1.  Contact security@utexas.edu or see http://www.otc.utexas.edu/ATdisplay.jsp?id=1066&cat=5&term=ratigan for licensing.
