@@ -680,6 +680,7 @@ if(outputfile.exists()){
     private void jcheckboxcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcheckboxcActionPerformed
         if (jcheckboxc.isSelected()== true)
         {
+
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jcheckboxcActionPerformed
