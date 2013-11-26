@@ -45,7 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.getContentPane().setBackground(Color.black);
-        joptionspanel.setVisible(false); 
+        joptionspanel.setVisible(false);
      }
 
 
@@ -445,7 +445,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jgobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jgobuttonActionPerformed
 jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.setText("Report"); //set Report button back to default color and text
         //Killing all other ratproxies!  THERE CAN ONLY BE ONE!
-        String cmd = "killall ratproxy"; 
+        String cmd = "killall ratproxy";
         Runtime rt=Runtime.getRuntime();
         try {
             rt.exec(cmd);
@@ -454,12 +454,12 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
         }
         try {
             //Attempting to brute-force create output dir
-            
+
             rt.exec(new String[]{"/bin/sh", "-c", "mkdir /tmp/ratproxy/"});
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
            /// THIS IS THE RATPROXY PROCESS
         cmd = jcommandlabel.getText().trim();
 	if( cmd.equals( "" ) ) {
@@ -468,8 +468,8 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
 	this._process = new RatproxyProcess( cmd, this.outputbox );
         Thread nt = new Thread( this._process );
         nt.start();
-        
-// LIST RATPROXIES?        
+
+// LIST RATPROXIES?
         try {
         String line;
         Process p = Runtime.getRuntime().exec("pgrep ratproxy");
@@ -482,9 +482,9 @@ jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.set
         input.close();
     } catch (Exception err) {
     }
- jreportbutton.setEnabled(true);       
-        
-        
+ jreportbutton.setEnabled(true);
+
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jgobuttonActionPerformed
 
@@ -554,7 +554,7 @@ jreportbutton.setEnabled(true);
 
     private void jstopbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jstopbuttonActionPerformed
     //Trying to killall first
-        String cmd = "killall ratproxy"; 
+        String cmd = "killall ratproxy";
         outputbox.append("\nKilling Ratproxy...\n");
     Runtime rt=Runtime.getRuntime();
         try {
@@ -562,8 +562,8 @@ jreportbutton.setEnabled(true);
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        // KILL SWITCH CALL THING BACKLOCK     
+
+        // KILL SWITCH CALL THING BACKLOCK
         if( this._process != null ) {
             this._process.shutdown();
         }
@@ -573,7 +573,7 @@ jreportbutton.setEnabled(true);
 
     private void jexitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jexitbuttonActionPerformed
         // TODO add your handling code here:
-        String cmd = "killall ratproxy"; 
+        String cmd = "killall ratproxy";
 
     Runtime rt=Runtime.getRuntime();
         try {
@@ -608,15 +608,15 @@ String date = new SimpleDateFormat("yyyy-MM-dd-HHmm").format(new Date());
                 outputbox.append("Created "+LOG_DIR+" successfully!"+"\n");
             }
         }
-        
+
 //        outputbox.append("debug: logfile= "+logfile+"\n");
         logfile = LOG_DIR + "/"+date+"-report.htm";
 //        outputbox.append("debug: logfile now= "+logfile+"\n");
 URI reportpath=null;
         try {
             reportpath = new URI("file://"+logfile);
-      
- 
+
+
         } catch (URISyntaxException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -631,9 +631,9 @@ if(outputfile.exists()){
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
     }else{jreportbutton.setText("WAIT");jreportbutton.setBackground(Color.RED);jreportbutton.setForeground(Color.WHITE);JOptionPane.showMessageDialog(frame, "Generating new report - It will open once complete.");
-                    
+
                        try {
-  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > "+outputfile});         
+  Process process = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "ratproxy-report /tmp/ratproxy/ratproxy.log > "+outputfile});
             try {
                 process.waitFor();
                 outputbox.append("Report successfully created at: "+outputfile+"\n");
@@ -642,10 +642,10 @@ if(outputfile.exists()){
             } catch (InterruptedException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-      
+
             } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
       jreportbutton.setForeground(Color.BLACK);
       jreportbutton.setBackground(Color.GREEN);
       jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.setText("Report"); //set Report button back to default color and text
@@ -656,10 +656,10 @@ if(outputfile.exists()){
             } catch (IOException ex) {
                 Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-               
-                
-            
- 
+
+
+
+
 
 }
 
@@ -680,7 +680,6 @@ if(outputfile.exists()){
     private void jcheckboxcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcheckboxcActionPerformed
         if (jcheckboxc.isSelected()== true)
         {
-
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jcheckboxcActionPerformed
@@ -691,7 +690,7 @@ jshowoptionsbutton.setVisible(false);
     }//GEN-LAST:event_jshowoptionsbuttonActionPerformed
 
     private void jhideoptionsbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jhideoptionsbuttonActionPerformed
-joptionspanel.setVisible(false); 
+joptionspanel.setVisible(false);
 jshowoptionsbutton.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jhideoptionsbuttonActionPerformed
 
@@ -727,7 +726,7 @@ JOptionPane.showMessageDialog(frame, "1. Enter desired target URL in Scope Domai
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
