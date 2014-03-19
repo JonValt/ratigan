@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 public class MainWindow extends javax.swing.JFrame {
 	static final String DEFAULT_WORKDIR = "/tmp/ratproxy/";
 	static final String DEFAULT_LOG = DEFAULT_WORKDIR + "ratproxy.log";
-	static final String RATPROXY_BIN = "/usr/bin/ratproxy";
+//	static final String RATPROXY_BIN = "/usr/bin/ratproxy";
         String logfile = new String ();
         File filename = new File(logfile);
         String command="";
@@ -80,6 +80,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jportfield = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
+        jratiganbinaryfield = new javax.swing.JTextField();
+        jratiganbinarylabel = new javax.swing.JLabel();
         jgobutton = new javax.swing.JButton();
         jstopbutton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -207,6 +209,16 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Port");
 
+        jratiganbinaryfield.setText("/usr/bin/ratproxy");
+        jratiganbinaryfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jratiganbinaryfieldActionPerformed(evt);
+            }
+        });
+
+        jratiganbinarylabel.setForeground(new java.awt.Color(102, 102, 102));
+        jratiganbinarylabel.setText("/path/to/ratproxy");
+
         org.jdesktop.layout.GroupLayout joptionspanelLayout = new org.jdesktop.layout.GroupLayout(joptionspanel);
         joptionspanel.setLayout(joptionspanelLayout);
         joptionspanelLayout.setHorizontalGroup(
@@ -216,35 +228,45 @@ public class MainWindow extends javax.swing.JFrame {
                 .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(joptionspanelLayout.createSequentialGroup()
                         .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jcheckboxe)
-                            .add(jcheckboxc)
-                            .add(jcheckboxg)
+                            .add(joptionspanelLayout.createSequentialGroup()
+                                .add(10, 10, 10)
+                                .add(jLabel3)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(jhideoptionsbutton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(joptionspanelLayout.createSequentialGroup()
+                                .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jcheckboxe)
+                                    .add(jcheckboxc)
+                                    .add(jcheckboxg)
+                                    .add(jcheckboxf)
+                                    .add(jcheckboxx)
+                                    .add(joptionspanelLayout.createSequentialGroup()
+                                        .add(jcheckboxt)
+                                        .add(123, 123, 123)
+                                        .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(jportfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 81, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .add(joptionspanelLayout.createSequentialGroup()
+                        .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jcheckboxi)
-                            .add(jcheckboxf)
                             .add(jcheckboxj)
                             .add(jcheckboxl)
-                            .add(jcheckboxx)
-                            .add(jcheckboxt)
                             .add(jcheckboxm)
                             .add(jcheckboxs))
-                        .add(41, 41, 41)
-                        .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jLabel5)
-                            .add(jLabel9)
-                            .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 96, Short.MAX_VALUE)
+                        .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel5)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel9)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jratiganbinarylabel))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jratiganbinaryfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jlogfilefield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jworkingdirfield1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel4)
-                            .add(jportfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 81, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(0, 42, Short.MAX_VALUE))
-                    .add(joptionspanelLayout.createSequentialGroup()
-                        .add(10, 10, 10)
-                        .add(jLabel3)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jhideoptionsbutton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .add(jLabel4))
+                        .add(50, 50, 50))))
         );
         joptionspanelLayout.setVerticalGroup(
             joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -254,15 +276,15 @@ public class MainWindow extends javax.swing.JFrame {
                     .add(jLabel3)
                     .add(jhideoptionsbutton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
-                .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, joptionspanelLayout.createSequentialGroup()
-                        .add(jcheckboxc)
-                        .add(1, 1, 1)
-                        .add(jcheckboxe)
-                        .add(6, 6, 6)
-                        .add(jcheckboxf)
-                        .add(6, 6, 6)
-                        .add(jcheckboxg)
+                .add(jcheckboxc)
+                .add(1, 1, 1)
+                .add(jcheckboxe)
+                .add(6, 6, 6)
+                .add(jcheckboxf)
+                .add(6, 6, 6)
+                .add(jcheckboxg)
+                .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(joptionspanelLayout.createSequentialGroup()
                         .add(6, 6, 6)
                         .add(jcheckboxi)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -276,8 +298,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jcheckboxt)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jcheckboxx))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, joptionspanelLayout.createSequentialGroup()
+                        .add(jcheckboxx)
+                        .addContainerGap(20, Short.MAX_VALUE))
+                    .add(joptionspanelLayout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(jLabel4)
                         .add(4, 4, 4)
                         .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -288,10 +312,14 @@ public class MainWindow extends javax.swing.JFrame {
                             .add(jworkingdirfield1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel9))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jratiganbinaryfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jratiganbinarylabel))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(joptionspanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jportfield, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 22, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(59, 59, 59))))
         );
 
         getContentPane().add(joptionspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 740, 390));
@@ -444,6 +472,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jgobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jgobuttonActionPerformed
 jreportbutton.setBackground(new java.awt.Color(102, 102, 102));jreportbutton.setText("Report"); //set Report button back to default color and text
+//finding /path/to/ratigan
+    String RATPROXY_BIN=jratiganbinaryfield.getText().trim();
+
         //Killing all other ratproxies!  THERE CAN ONLY BE ONE!
         String cmd = "killall ratproxy";
         Runtime rt=Runtime.getRuntime();
@@ -548,6 +579,7 @@ String port=jportfield.getValue() +"";
 command = command + port;
 
 //show command
+String RATPROXY_BIN=jratiganbinaryfield.getText().trim();
 jcommandlabel.setText(RATPROXY_BIN+" "+command);
 jreportbutton.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -720,6 +752,10 @@ JOptionPane.showMessageDialog(frame, "1. Enter desired target URL in Scope Domai
         + "7. Buy a beer to reward yourself for making the excellent decision to use ratigan!");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jratiganbinaryfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jratiganbinaryfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jratiganbinaryfieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -791,6 +827,8 @@ JOptionPane.showMessageDialog(frame, "1. Enter desired target URL in Scope Domai
     private javax.swing.JTextField jlogfilefield;
     private javax.swing.JPanel joptionspanel;
     private javax.swing.JSpinner jportfield;
+    private javax.swing.JTextField jratiganbinaryfield;
+    private javax.swing.JLabel jratiganbinarylabel;
     private javax.swing.JButton jreportbutton;
     private javax.swing.JTextField jscopefield;
     private javax.swing.JButton jshowoptionsbutton;
